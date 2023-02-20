@@ -20,7 +20,7 @@ docker build . -t wsgidav-obsidian
 
 ### Step 4: Change the config
 ```bash
-# Using your favorite editor of choice, make necessary modifications to the config file. A sample has been provided in the repo.
+# Using your favorite editor of choice, make necessary modifications to the config file.
 nano config.yaml
 ```
 
