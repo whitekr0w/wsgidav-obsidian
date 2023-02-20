@@ -80,7 +80,7 @@ lock_storage: true
 # ==============================================================================
 # DEBUGGING
 
-verbose: 2
+verbose: 2 # Set this to 4 if you want to debug incoming traffic.
 
 logging:
     logger_date_format: '%H:%M:%S'
@@ -92,7 +92,7 @@ logging:
 # HTML DIRECTORY BROWSER
 
 dir_browser:
-    enable: true
+    enable: false # I recommend using this for debugging purposes.
     directory_slash: true
     icon: false
     response_trailer: false
