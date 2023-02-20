@@ -1,5 +1,5 @@
 # Why?
-I got fed up with trying to configure other other WebDAV containers to work with Remotely Save on Obsidian, so I made my own.
+I got fed up with trying to configure other other WebDAV containers to work with [Remotely Save](https://github.com/remotely-save/remotely-save) on Obsidian, so I made my own.
 This allegedly is how the plugin was tested with WebDAV, and lo-and-behold, when testing it magically works without errors.
 
 I can't live without this plugin functioning.
