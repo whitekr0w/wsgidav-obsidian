@@ -2,6 +2,8 @@
 I got fed up with trying to configure other other WebDAV containers to work with Remotely Save on Obsidian, so I made my own.
 This allegedly is how the plugin was tested with WebDAV, and lo-and-behold, when testing it magically works without errors.
 
+I can't live or breathe without this plugin functioning.
+
 # Building and Deploying
 ### Step 1: Clone the directory
 ```bash
