@@ -1,0 +1,105 @@
+# ============================================================================
+# SERVER OPTIONS
+
+server: cheroot
+host: 0.0.0.0
+port: 8080
+block_size: 8192
+add_header_MS_Author_Via: false
+
+hotfixes:
+    emulate_win32_lastmod: false
+    re_encode_path_info: true
+    unquote_path_info: false
+    treat_root_options_as_asterisk: false
+
+middleware_stack:
+    - wsgidav.mw.cors.Cors # CORS controller
+    - wsgidav.error_printer.ErrorPrinter # Error handler
+    - wsgidav.http_authenticator.HTTPAuthenticator # HTTP Authentication module
+    - wsgidav.dir_browser.WsgiDavDirBrowser # Directory browser via HTTP
+    - wsgidav.request_resolver.RequestResolver  # Request resolving module, must be last.
+
+# ==============================================================================
+# SHARES
+
+mount_path: null # This specifies a default mount path for other file paths to follow relatively.
+
+provider_mapping:
+    '/': '/var/dav' # This should be the root of where files will be served.
+
+# ==============================================================================
+# AUTHENTICATION
+
+http_authenticator:
+    accept_basic: true # Accept basic auth
+    accept_digest: true # Accept digest auth
+    default_to_digest: false # Default to basic auth
+    trusted_auth_header: null
+    domain_controller: null # No DC
+
+simple_dc:
+    user_mapping:
+        '*': # Specifies that all directories should be authenticated.
+            'obsidian': # CHANGE THIS TO THE USERNAME YOU WANT TO USE!
+                password: 'obsidian' # CHANGE THIS TO THE PASSWORD YOU WANT TO USE!
+
+cors:
+    allow_origin: '*' # Specify orgin allowed. Allow all. 
+
+    allow_methods: # WebDav Methods
+      - COPY
+      - DELETE
+      - GET
+      - HEAD
+      - MKCOL
+      - MOVE
+      - OPTIONS
+      - POST
+      - PROPFIND
+      - PUT
+
+    allow_headers: # WebDav headers
+      - 'MS-WDVME'
+      - 'MS-WDV'
+      - 'MS-WDVSE'
+      - 'MS-WEBDAVE'
+      - 'Prefer'
+      - 'Depth'
+      - 'Overwrite'
+      - 'If'
+      - 'Lock-Token'
+
+    expose_headers: true
+    allow_credentials: false
+    max_age: 600
+
+property_manager: null
+lock_storage: true
+
+# ==============================================================================
+# DEBUGGING
+
+verbose: 2
+
+logging:
+    logger_date_format: '%H:%M:%S'
+    logger_format: '%(asctime)s.%(msecs)03d - %(levelname)-8s: %(message)s'
+    debug_methods: []
+    debug_litmus: []
+
+# ==============================================================================
+# HTML DIRECTORY BROWSER
+
+dir_browser:
+    enable: true
+    directory_slash: true
+    icon: false
+    response_trailer: false
+    show_user: false
+    show_logout: true
+    davmount: false
+    davmount_links: false
+    ms_sharepoint_support: false
+    libre_office_support: false
+    htdocs_path: null
