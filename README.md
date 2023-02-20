@@ -27,7 +27,7 @@ nano config.yaml
 
 ### Step 5: Run Docker
 ```bash
-docker run -d 0-v /path/to/your/config.yaml:/app/config.yaml -v /path/to/serve:/var/dav -p 8080:8080 wsgidav-obsidian
+docker run -d -v /path/to/your/config.yaml:/app/config.yaml -v /path/to/serve:/var/dav -p 8080:8080 wsgidav-obsidian
 ```
 
 If you are runnning this with the default config, the username and password with be `obsidian:obsidian`.
