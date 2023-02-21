@@ -28,7 +28,7 @@ nano config.yaml
 
 ### Step 5: Run Docker
 ```bash
-# If built locally
+# Local image
 docker run -d -v /path/to/your/config.yaml:/app/config.yaml -v /path/to/serve:/var/dav -p 8080:8080 wsgidav
 
 # Remote image
