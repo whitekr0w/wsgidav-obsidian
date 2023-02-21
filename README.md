@@ -17,7 +17,7 @@ cd wsgidav-obsidian
 
 ### Step 3: Build the image
 ```bash
-docker build . -t wsgidav-obsidian
+docker build . -t wsgidav
 ```
 
 ### Step 4: Change the config
@@ -28,7 +28,11 @@ nano config.yaml
 
 ### Step 5: Run Docker
 ```bash
-docker run -d -v /path/to/your/config.yaml:/app/config.yaml -v /path/to/serve:/var/dav -p 8080:8080 wsgidav-obsidian
+# If built locally
+docker run -d -v /path/to/your/config.yaml:/app/config.yaml -v /path/to/serve:/var/dav -p 8080:8080 wsgidav
+
+# Remote image
+docker run -d -v /path/to/your/config.yaml:/app/config.yaml -v /path/to/serve:/var/dav -p 8080:8080 whitekr0w/wsgidav:latest
 ```
 
 If you are runnning this with the default config, the username and password with be `obsidian:obsidian`.
